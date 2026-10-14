@@ -11,6 +11,7 @@ import css from "@/assets/tech/css.webp";
 import html from "@/assets/tech/html.webp";
 import javascript from "@/assets/tech/javascript.webp";
 import react from "@/assets/tech/react.webp";
+import vite from "@/assets/tech/vite.webp";
 import jwt from "@/assets/tech/jwt.webp";
 
 import java from "@/assets/tech/java.webp";
@@ -23,9 +24,7 @@ import maven from "@/assets/tech/maven.webp";
 import postman from "@/assets/tech/postman.webp";
 import git from "@/assets/tech/git.webp";
 
-import project1 from "@/assets/thumbnails/ecommerce.webp";
-import project2 from "@/assets/thumbnails/student.webp";
-import project3 from "@/assets/thumbnails/taskapi.webp";
+import project1 from "@/assets/thumbnails/ilahiretail.png";
 
 import github from "@/assets/socials/github.webp";
 import linkedin from "@/assets/socials/linkedin.webp";
@@ -117,46 +116,17 @@ export const certifications = [
 
 export const projects = [
   {
-    title: "E-Commerce App",
+    title: "Ilahi Retail E-Commerce Application",
     description:
-      "A full-stack shopping application with product listing, cart, order management and JWT-based login. Includes an admin panel to manage products and orders, with a responsive React frontend connected to Spring Boot REST APIs. (Replace this with your real project.)",
+      "Developed for a Bangalore-based client launching a new retail venture. Built a comprehensive full-stack e-commerce platform featuring secure user Authentication, end-to-end Cart & Order Management, seamless Payment Gateway integration, and an intuitive Admin Dashboard to manage daily products, inventory, and sales.",
     img: project1,
     stack: [
-      { title: "Spring Boot", img: springboot },
-      { title: "Hibernate", img: hibernate },
-      { title: "MySQL", img: mysql },
       { title: "React", img: react },
-      { title: "JWT", img: jwt },
-    ],
-    url: "#",
-  },
-
-  {
-    title: "Student Management",
-    description:
-      "A CRUD system to manage students, courses and attendance with search, pagination and validation. Built using layered architecture: Controller, Service and Repository. (Replace this with your real project.)",
-    img: project2,
-    stack: [
-      { title: "Java", img: java },
-      { title: "Hibernate", img: hibernate },
-      { title: "MySQL", img: mysql },
-      { title: "Maven", img: maven },
-    ],
-    url: "#",
-  },
-
-  {
-    title: "Task Tracker API",
-    description:
-      "A REST API for users, projects and tasks with role-based access using Spring Security and JWT. Tested with Postman and deployed on AWS. (Replace this with your real project.)",
-    img: project3,
-    stack: [
+      { title: "Vite", img: vite },
       { title: "Spring Boot", img: springboot },
-      { title: "JWT", img: jwt },
-      { title: "Postman", img: postman },
-      { title: "AWS", img: aws },
+      { title: "MySQL", img: mysql },
     ],
-    url: "#",
+    url: "https://ilahiretail.netlify.app/",
   },
 ];
 

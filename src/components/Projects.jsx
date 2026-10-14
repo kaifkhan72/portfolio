@@ -35,34 +35,54 @@ const Projects = () => {
           {projects.map((project) => (
             <CarouselItem
               key={project.title}
-              className="basis-[92%] md:basis-[95%] lg:basis-[60%] relative flex min-h-[450px] flex-col overflow-hidden rounded-2xl border border-muted-foreground/20 bg-black p-1 transition-transform hover:scale-[1.01] md:min-h-[550px] lg:h-full lg:rounded-3xl xl:p-2"
+              className={`relative flex flex-col overflow-hidden rounded-2xl border border-muted-foreground/20 bg-neutral-950/90 p-3 transition-transform hover:scale-[1.005] md:p-6 lg:rounded-3xl ${
+                projects.length === 1
+                  ? "basis-full max-w-5xl mx-auto"
+                  : "basis-[92%] md:basis-[95%] lg:basis-[60%]"
+              }`}
             >
-              {/* Image */}
-              <div className="relative h-[450px] w-full md:h-full after:absolute after:inset-0 after:block after:rounded-2xl after:bg-gradient-to-t after:from-black/95 after:via-black/40 after:to-transparent">
+              {/* Project Image / Theme Preview (Clean & Fully Visible) */}
+              <div className="relative w-full overflow-hidden rounded-xl border border-muted-foreground/20 bg-black shadow-xl aspect-[16/9] md:aspect-[16/8] max-h-[460px]">
                 <img
                   src={project.img}
                   alt={project.title}
                   loading="lazy"
-                  className="pointer-events-none relative h-full w-full select-none rounded-xl border border-muted-foreground/20 object-cover"
+                  className="h-full w-full object-cover object-top transition duration-500 hover:scale-[1.01]"
                 />
               </div>
 
-              {/* Content */}
-              <div className="absolute bottom-0 left-0 z-10 flex w-full flex-col gap-2 p-4 md:p-8">
-                <h3 className="bg-gradient-to-tr from-white/90 to-gray-500 bg-clip-text text-2xl font-semibold text-transparent md:text-4xl xl:text-6xl">
-                  {project.title}
-                </h3>
+              {/* Content Details (Below Image - Zero Overlapping) */}
+              <div className="flex flex-col gap-3 pt-4 md:pt-6">
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <h3 className="bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-xl font-bold tracking-tight text-transparent md:text-2xl lg:text-3xl">
+                    {project.title}
+                  </h3>
 
-                <span className="max-w-[90%] text-sm text-gray-300 md:text-base">
+                  {/* Live Link Button */}
+                  <a
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1.5 rounded-lg border border-red-500/40 bg-red-500/10 px-3.5 py-1.5 text-xs font-medium text-red-400 backdrop-blur-md transition hover:bg-red-500/20 hover:scale-105 md:text-sm"
+                  >
+                    <SquareArrowOutUpRight className="size-4 md:size-4.5" />
+                    <span>Live Link</span>
+                  </a>
+                </div>
+
+                <p className="text-xs text-gray-300 md:text-sm leading-relaxed max-w-4xl">
                   {project.description}
-                </span>
+                </p>
 
                 {/* Tech Stack */}
-                <div className="mt-3 flex flex-wrap gap-2">
+                <div className="mt-1 flex flex-wrap items-center gap-2">
+                  <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground mr-1">
+                    Tech Stack:
+                  </span>
                   {project.stack.map((tech, index) => (
                     <div
                       key={index}
-                      className="flex items-center gap-1 rounded-md border border-muted-foreground/30 px-2 py-1 text-xs backdrop-blur-2xl md:px-3 md:py-2 md:text-sm"
+                      className="flex items-center gap-1.5 rounded-md border border-muted-foreground/30 bg-white/5 px-2.5 py-1 text-xs backdrop-blur-2xl md:px-3 md:py-1.5 md:text-sm"
                     >
                       <img
                         src={tech.img}
@@ -72,19 +92,6 @@ const Projects = () => {
                       <span>{tech.title}</span>
                     </div>
                   ))}
-
-                  {/* Live Link */}
-                  <a
-                    href={project.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1 rounded-md border border-muted-foreground/30 px-2 py-1 text-xs backdrop-blur-2xl transition hover:scale-[1.03] md:px-3 md:py-2 md:text-sm"
-                  >
-                    <SquareArrowOutUpRight className="size-4 md:size-5" />
-                    <span className="text-red-400">
-                      Live Link
-                    </span>
-                  </a>
                 </div>
               </div>
             </CarouselItem>
